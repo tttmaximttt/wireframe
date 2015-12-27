@@ -1,0 +1,50 @@
+{
+  "name": "wf",
+  "version": "1.0.0",
+  "description": "work project",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "sinon-mocha": "0.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-jest": "^6.0.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "jest-cli": "^0.8.2",
+    "jest-webpack-alias": "^2.0.0",
+    "react": "^0.14.3",
+    "react-addons-test-utils": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-loader": "^2.0.0",
+    "sinon": "^1.17.2",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testFileExtensions": [
+      "jsx"
+    ],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/fbjs",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tttmaximttt/wireframe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tttmaximttt/wireframe/issues"
+  },
+  "homepage": "https://github.com/tttmaximttt/wireframe#readme"
+}
