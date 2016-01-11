@@ -7,7 +7,6 @@ class List extends React.Component{
         super(props);
     }
     render(){
-        var lis = this._renderItems(menus);
         return(
             <li>
                 {this.props.name} - {this.props.result}
@@ -40,7 +39,7 @@ class History extends React.Component{
         var formatedLi = [];
         for(let item of hist){
             var histObj = { name: item.name, result:item.result };
-            formatedLi.push(<List data={item}/>)
+            formatedLi.push(<List key={hist.indexOf(item)} data={item}/>)
         }
 
         return(

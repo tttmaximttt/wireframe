@@ -30,10 +30,10 @@ class StoreWorkout extends React.Component{
     render(){
         var opts = [];
         for (let item of _mockWorkouts) {
-            opts.push(<Option value={item.name}/>);
+            opts.push(<Option key={_mockWorkouts.indexOf(item)} value={item.name}/>);
         }
         return(
-            <div id="logWorkout" class="tabview">
+            <div id="logWorkout" className="tabview">
                 <h2>Record Workout</h2>
                 <label htmlFor="chooseWorkout">Workout:</label>
                 <select name="" id="chooseWorkout">

@@ -19782,7 +19782,11 @@
 	    function SingIn(props) {
 	        _classCallCheck(this, SingIn);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(SingIn).call(this, props));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SingIn).call(this, props));
+
+	        _this.state = {};
+	        _this._doAuth = _this._doAuth.bind(_this);
+	        return _this;
 	    }
 
 	    _createClass(SingIn, [{
@@ -19801,11 +19805,11 @@
 	                    "label",
 	                    { htmlFor: "password" },
 	                    "Password",
-	                    _react2.default.createElement("input", { type: "text", id: "password" })
+	                    _react2.default.createElement("input", { type: "password", id: "password" })
 	                ),
 	                _react2.default.createElement(
 	                    "button",
-	                    { id: "signIn", onClick: this.props.onAuthComplete.bind(null, this._doAuth) },
+	                    { id: "signIn", onClick: this.props.onAuthComplete ? this.props.onAuthComplete.bind(null, this._doAuth) : this._doAuth },
 	                    "Sign In"
 	                )
 	            );
@@ -19999,7 +20003,6 @@
 	    _createClass(List, [{
 	        key: "render",
 	        value: function render() {
-	            var lis = this._renderItems(menus);
 	            return _react2.default.createElement(
 	                "li",
 	                null,
@@ -20034,6 +20037,7 @@
 	    _createClass(Navigation, [{
 	        key: "render",
 	        value: function render() {
+
 	            var menus = [{
 	                view: 'define',
 	                text: 'Define A Workout'
@@ -20053,7 +20057,7 @@
 	                for (var _iterator = menus[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var item = _step.value;
 
-	                    list.push(_react2.default.createElement(List, { data: item }));
+	                    list.push(_react2.default.createElement(List, { onNav: this.props.onNav, key: menus.indexOf(item), data: item }));
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;
@@ -20252,7 +20256,7 @@
 	                for (var _iterator = _mockWorkouts[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var item = _step.value;
 
-	                    opts.push(_react2.default.createElement(Option, { value: item.name }));
+	                    opts.push(_react2.default.createElement(Option, { key: _mockWorkouts.indexOf(item), value: item.name }));
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;
@@ -20271,7 +20275,7 @@
 
 	            return _react2.default.createElement(
 	                "div",
-	                { id: "logWorkout", "class": "tabview" },
+	                { id: "logWorkout", className: "tabview" },
 	                _react2.default.createElement(
 	                    "h2",
 	                    null,
@@ -20348,7 +20352,6 @@
 	    _createClass(List, [{
 	        key: "render",
 	        value: function render() {
-	            var lis = this._renderItems(menus);
 	            return _react2.default.createElement(
 	                "li",
 	                null,
@@ -20397,7 +20400,7 @@
 	                    var item = _step.value;
 
 	                    var histObj = { name: item.name, result: item.result };
-	                    formatedLi.push(_react2.default.createElement(List, { data: item }));
+	                    formatedLi.push(_react2.default.createElement(List, { key: hist.indexOf(item), data: item }));
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;

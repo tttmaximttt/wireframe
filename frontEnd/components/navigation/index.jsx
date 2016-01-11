@@ -5,9 +5,9 @@ import React from 'react'
 class List extends React.Component{
     constructor(props) {
         super(props);
+
     }
     render(){
-        var lis = this._renderItems(menus);
         return(
             <li>
                 <a href="#" onClick={this.props.onNav.bind(null,this._nav(this.props.data.view))}>{this.props.data.text}</a>
@@ -25,6 +25,7 @@ class Navigation extends React.Component{
         super(props);
     }
     render(){
+
         var menus = [
             {
                 view:'define',
@@ -41,7 +42,7 @@ class Navigation extends React.Component{
         ];
         var list = [];
         for(let item of menus){
-            list.push(<List data={item}/>)
+            list.push(<List onNav={this.props.onNav} key={menus.indexOf(item)} data={item}/>)
         }
         return(
             <ul>
